@@ -1,0 +1,21 @@
+[project]
+name = "call-translator-saas"
+version = "0.1.0"
+description = "Server-side account and speech accounting foundation for Call Translator"
+requires-python = "==3.11.*"
+dependencies = [
+    "aiohttp==3.13.5",
+    "pyjwt[crypto]==2.10.1",
+    "python-dotenv==1.2.1",
+    "webrtcvad-wheels==2.0.14.post1",
+]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+local = [
+    "cryptography==50.0.2",
+    "num2words==0.5.14",
+    "piper-tts==1.8.0",
+]

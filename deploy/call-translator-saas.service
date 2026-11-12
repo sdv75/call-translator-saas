@@ -1,0 +1,31 @@
+# Managed by Call Translator SaaS deployment.
+[Unit]
+Description=Call Translator SaaS
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=call-translator-saas
+Group=call-translator-saas
+WorkingDirectory=/home/projects/call-translator-saas/current
+EnvironmentFile=/etc/call-translator-saas.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/home/projects/call-translator-saas/current/.venv/bin/python -m server
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/projects/call-translator-saas/shared
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+MemoryMax=768M
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

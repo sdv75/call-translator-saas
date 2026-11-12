@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Проверка голоса на компьютере — Call Translator</title>
+<link rel="stylesheet" href="tts-test.css">
+<main>
+  <h1>Проверка голоса на этом компьютере</h1>
+  <p>Синтез выполняется в Chrome. Эта проверка не подключается к серверу перевода и не передаёт звук в Meet.</p>
+  <p>Оставьте эту вкладку открытой. Для проверки под нагрузкой откройте рядом звонок Meet с камерой.</p>
+  <p><a href="BROWSER-TTS.ru.md" target="_blank">Инструкция и описание замеров</a> · <a href="vendor/browser-tts/THIRD-PARTY.md" target="_blank">Компоненты и лицензии</a></p>
+  <section aria-labelledby="voice-heading">
+    <h2 id="voice-heading">Голос и текст</h2>
+    <label for="language">Язык</label>
+    <select id="language"><option value="ru">Русский — Ruslan</option><option value="en">Английский — Joe</option></select>
+    <p id="cache">Проверка сохранённых голосов…</p>
+    <div class="actions">
+      <button id="download">Скачать голос</button>
+      <button id="remove">Удалить этот голос</button>
+    </div>
+    <progress id="progress" hidden></progress>
+    <label for="text">Текст для озвучивания (до 2 000 символов)</label>
+    <textarea id="text" maxlength="2000" rows="4"></textarea>
+    <div class="actions"><button id="short">Короткая фраза</button><button id="long">Длинная фраза</button></div>
+    <div class="actions"><button id="synthesize">Создать озвучку</button><button id="cancel" disabled>Отменить операцию</button></div>
+    <audio id="audio" controls hidden></audio>
+    <button id="stop-audio">Остановить звук</button>
+    <p id="status" role="status" aria-live="polite">Подготовка проверки…</p>
+  </section>
+  <section aria-labelledby="measure-heading">
+    <h2 id="measure-heading">Замеры</h2>
+    <p>Подготовка включает загрузку модели в память. Синтез измеряется отдельно от воспроизведения. Первый синтез после запуска worker отмечается как холодный.</p>
+    <button id="benchmark">Проверить оба языка: прогрев и по 5 коротких и длинных фраз</button>
+    <p>Для прохождения проверки медианное время синтеза должно быть меньше половины длительности речи в обоих языках. Прослушайте озвучку для оценки произношения.</p>
+    <p id="summary"></p>
+    <div class="table-wrap"><table><thead><tr><th>Язык</th><th>Режим</th><th>Подготовка, с</th><th>Синтез, с</th><th>Звук, с</th><th>Доля времени звука</th></tr></thead><tbody id="results"></tbody></table></div>
+    <div class="actions"><button id="copy">Скопировать технический отчёт</button><button id="clear">Очистить замеры</button></div>
+    <p>Отчёт содержит версии и замеры. Введённый текст и аудио в него не включаются. Отчёт и результаты не сохраняются после закрытия вкладки.</p>
+  </section>
+</main>
+<script type="module" src="tts-test.js"></script>
+</html>

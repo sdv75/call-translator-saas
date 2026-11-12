@@ -1,0 +1,13 @@
+# Create a NEW root-owned server configuration at /etc/call-translator-saas.env.
+# Never upload a local .env file or legacy credentials.
+CT_PUBLIC_URL=https://ppsbot.pp.ua/call-translator-saas
+CT_HOST=127.0.0.1
+CT_PORT=5086
+CT_DATABASE=/home/projects/call-translator-saas/shared/accounts.sqlite3
+CT_VOICE_CATALOG=/home/projects/call-translator-saas/current/catalog/voices.signed.json
+CT_DOWNLOAD_ROOT=/home/projects/call-translator-saas/current/downloads
+CT_EXPERIMENTAL_AUDIO=1
+CT_GOOGLE_CLIENT_ID=
+CT_GOOGLE_CLIENT_SECRET=
+CT_DEEPGRAM_KEY=
+CT_GROQ_KEY=

@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Call Translator — Meet prototype",
+  "version": "0.4.4",
+  "web_accessible_resources": [{"resources": ["pcm-worklet.js"], "matches": ["https://meet.google.com/*"]}],
+  "minimum_chrome_version": "116",
+  "content_security_policy": {"extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"},
+  "description": "Driver-free outgoing audio feasibility test for Google Meet.",
+  "permissions": ["activeTab", "scripting", "storage", "tabCapture", "offscreen", "nativeMessaging", "downloads"],
+  "host_permissions": ["https://meet.google.com/*", "https://ppsbot.pp.ua/*"],
+  "action": {"default_popup": "popup.html"},
+  "background": {"service_worker": "background.js"},
+  "content_scripts": [
+    {"matches": ["https://meet.google.com/*"], "js": ["pcm.js", "meet.js", "translate.js"], "run_at": "document_start", "world": "MAIN"},
+    {"matches": ["https://meet.google.com/*"], "js": ["bridge.js"], "run_at": "document_start", "world": "ISOLATED"}
+  ]
+}

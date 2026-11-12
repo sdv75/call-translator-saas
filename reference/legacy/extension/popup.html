@@ -1,0 +1,26 @@
+<!doctype html><html lang="ru"><meta charset="utf-8">
+<style>body{font:14px sans-serif;width:340px;padding:12px}button{margin:8px 0;display:block}p{line-height:1.4;overflow-wrap:anywhere}#run-state{font-size:18px;font-weight:700;padding:12px;background:#eee;border-radius:6px}#run-state[data-phase="running"]{background:#e0f3e3;color:#175725}#run-state[data-phase="error"]{background:#fde6e6;color:#8a1717}details{margin-top:12px}label{display:block;margin:8px 0}</style>
+<h3>Call Translator — Google Meet</h3>
+<p id="run-state" data-phase="stopped" role="status">Перевод выключен</p>
+<p id="status" aria-live="polite">Войдите в звонок и нажмите «Включить перевод».</p>
+<label>Мой язык <select id="source"><option value="ru">Русский</option><option value="en">Английский</option><option value="uk">Українська</option></select></label>
+<label>Язык собеседника <select id="language"><option value="en">Английский</option><option value="ru">Русский</option><option value="uk">Українська</option></select></label>
+<label>Озвучка <select id="tts"><option value="client">На компьютере (Piper)</option><option value="server">На сервере</option></select></label>
+<label><input type="checkbox" id="hearOwnTranslation">Слышать свой перевод</label>
+<button id="start">Включить перевод</button>
+<button id="stop">Остановить перевод</button>
+<label><input type="checkbox" id="echoGuard">Защита от динамика рядом (разговор по очереди)</label>
+<p>Дуплекс: используйте наушники у обоих участников. Новая речь сохраняется во время озвучки.</p>
+<button id="transcript">Стенограммы и сохранение файла</button>
+<p>Каждый запуск — отдельная стенограмма. После остановки файл автоматически сохраняется в Загрузки / CallTranslator.</p>
+<details><summary>Как начать</summary><p>Откройте встречу Google Meet, выберите языки и нажмите «Включить перевод». После обновления расширения заново откройте вкладку Meet. Дождитесь зелёной надписи «Перевод включён».</p></details>
+<details><summary>Проверки и восстановление</summary>
+<button id="native-check">Проверить локальный Piper</button>
+<button id="probe">Открыть проверку на странице Meet</button>
+<button id="restore">Восстановить микрофон</button>
+<button id="browser-tts">Проверить голос на этом компьютере</button>
+</details>
+<p id="speech0" style="border-left:4px solid #175dc5;padding-left:8px">Вы: ожидаю речь.</p>
+<p id="speech1" style="border-left:4px solid #ad4616;padding-left:8px">Собеседник: ожидаю речь.</p>
+<p>Здесь показана последняя реплика каждого участника. Полная история — в стенограмме.</p>
+<script src="popup.js"></script></html>
